@@ -33,7 +33,7 @@ in
         description = "The port for the Ombi web interface.";
       };
       host = lib.mkOption {
-        type = lib.types.string;
+        type = lib.types.str;
         default = "0.0.0.0";
         description = "The host address for the Ombi web interface.";
       };
