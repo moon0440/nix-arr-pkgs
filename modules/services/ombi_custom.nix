@@ -32,10 +32,17 @@ in
         default = 5000;
         description = "The port for the Ombi web interface.";
       };
+
       host = lib.mkOption {
         type = lib.types.str;
         default = "0.0.0.0";
         description = "The host address for the Ombi web interface.";
+      };
+
+      baseUrl = lib.mkOption {
+        type = lib.types.str;
+        default = "/";
+        description = "The base url for the Ombi web interface.";
       };
 
       openFirewall = lib.mkOption {
@@ -72,7 +79,7 @@ in
         Type = "simple";
         User = cfg.user;
         Group = cfg.group;
-        ExecStart = "${lib.getExe cfg.package} --storage '${cfg.dataDir}' --host 'http://${toString cfg.host}:${toString cfg.port}'";
+        ExecStart = "${lib.getExe cfg.package} --storage '${cfg.dataDir}' --host 'http://${toString cfg.host}:${toString cfg.port}'  --baseurl '${toString cfg.baseUrl}'";
         Restart = "on-failure";
       };
     };
