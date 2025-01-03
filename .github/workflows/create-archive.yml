@@ -26,10 +26,11 @@ jobs:
 
       # Upload the archive as an artifact
       - name: Upload tar.gz archive
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: main.tar.gz
           path: dist/main.tar.gz
+          overwrite: true
 
       # Optionally publish to GitHub Releases (on tag or release creation)
       - name: Upload to GitHub Release
