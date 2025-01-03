@@ -1,6 +1,6 @@
 {
   overlays = import ./overlay.nix;
   nixosModules = {
-    ombi = import ./modules/services/ombi.nix;
+    ombi_custom = import ./modules/services/ombi_custom.nix;
   };
 }

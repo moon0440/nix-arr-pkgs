@@ -32,7 +32,7 @@ let
 
 in
 stdenv.mkDerivation rec {
-  pname = "ombi";
+  pname = "ombi_custom";
   version = "4.44.1";
 
   sourceRoot = ".";
@@ -74,7 +74,7 @@ stdenv.mkDerivation rec {
 
   meta = with lib; {
     description = "Self-hosted web application that automatically gives your shared Plex or Emby users the ability to request content by themselves";
-    homepage = "https://ombi.io/";
+    homepage = "https://ombi_custom.io/";
     sourceProvenance = with sourceTypes; [ binaryNativeCode ];
     license = licenses.gpl2Only;
     maintainers = with maintainers; [ moon0440 ];

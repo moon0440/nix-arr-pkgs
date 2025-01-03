@@ -5,25 +5,25 @@
   ...
 }:
 let
-  cfg = config.services.ombi;
+  cfg = config.services.ombi_custom;
 
 in
 {
   options = {
-    services.ombi = {
+    services.ombi_custom = {
       enable = lib.mkEnableOption ''
         Ombi, a web application that automatically gives your shared Plex or
         Emby users the ability to request content by themselves!
 
-        Optionally see <https://docs.ombi.app/info/reverse-proxy>
+        Optionally see <https://docs.ombi_custom.app/info/reverse-proxy>
         on how to set up a reverse proxy
       '';
 
-      package = lib.mkPackageOption pkgs "ombi" { };
+      package = lib.mkPackageOption pkgs "ombi_custom" { };
 
       dataDir = lib.mkOption {
         type = lib.types.str;
-        default = "/var/lib/ombi";
+        default = "/var/lib/ombi_custom";
         description = "The directory where Ombi stores its data files.";
       };
 
@@ -46,13 +46,13 @@ in
 
       user = lib.mkOption {
         type = lib.types.str;
-        default = "ombi";
+        default = "ombi_custom";
         description = "User account under which Ombi runs.";
       };
 
       group = lib.mkOption {
         type = lib.types.str;
-        default = "ombi";
+        default = "ombi_custom";
         description = "Group under which Ombi runs.";
       };
     };
@@ -81,7 +81,7 @@ in
       allowedTCPPorts = [ cfg.port ];
     };
 
-    users.users = lib.mkIf (cfg.user == "ombi") {
+    users.users = lib.mkIf (cfg.user == "ombi_custom") {
       ombi = {
         isSystemUser = true;
         group = cfg.group;
@@ -89,6 +89,6 @@ in
       };
     };
 
-    users.groups = lib.mkIf (cfg.group == "ombi") { ombi = { }; };
+    users.groups = lib.mkIf (cfg.group == "ombi_custom") { ombi = { }; };
   };
 }

@@ -1,3 +1,3 @@
 self: super: {
-  ombi = self.callPackage ./pkgs/ombi {};
+  ombi_custom = self.callPackage ./pkgs/ombi_custom {};
 }
