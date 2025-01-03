@@ -3,7 +3,7 @@ name: Create Archive
 on:
   push:
     branches:
-      - main
+      - master
   release:
     types:
       - created
